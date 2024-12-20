@@ -1,0 +1,54 @@
+# Dionysus
+format: jb-book
+root: index
+chapters:
+  # Sing O Muse!
+  - file: act1/part1
+    sections:
+      - title: Shadow
+        file: act1/chapter1
+      - title: Übermensch
+        file: act1/chapter2
+      - title: Individuation
+        file: act1/chapter3
+        
+  # Sing O Muse!
+  - file: act2/part2
+    sections:
+      - title: Biology
+        file: act2/chapter1
+      - title: Sociology
+        file: act2/chapter2
+      - title: Psychology
+        file: act2/chapter3
+
+  # Apollo
+  - file: act3/part3
+    sections:
+      - title: Déluge
+        file: act3/act1
+        sections:
+          - title: Cosmic
+            file: act3/part1/part1_1
+          - title: Earth
+            file: act3/part1/part1_2
+          - title: Life
+            file: act3/part1/part1_3
+      - title: Gates
+        file: act3/act2
+        sections:
+          - title: Man
+            file: act3/part2/part2_1
+          - title: Fall
+            file: act3/part2/part2_2
+          - title: Salvation
+            file: act3/part2/part2_3
+      - title: Flow
+        file: act3/act3
+        sections:
+          - title: Happiness
+            file: act3/part3/part3_1
+          - title: Iteration
+            file: act3/part3/part3_2
+
+  - file: act3/part3/part3_3
