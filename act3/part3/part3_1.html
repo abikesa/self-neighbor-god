@@ -1,0 +1,768 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Chapter 1 &#8212; Sui</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-bootstrap.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'act3/part3/part3_1';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Chapter 2" href="part3_2.html" />
+    <link rel="prev" title="Relational" href="../act3.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://upload.wikimedia.org/wikipedia/en/e/ef/Future_–_Mask_Off.jpg" class="logo__image only-light" alt="Sui - Home"/>
+    <script>document.write(`<img src="https://upload.wikimedia.org/wikipedia/en/e/ef/Future_–_Mask_Off.jpg" class="logo__image only-dark" alt="Sui - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Youth
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../act1/part1.html">Transformation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../act1/chapter1.html">Shadow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../act1/chapter2.html">Übermensch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../act1/chapter3.html">Individuation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../act2/part2.html">Games</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../act2/chapter1.html">Biology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../act2/chapter2.html">Sociology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../act2/chapter3.html">Psychology</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../part3.html">Adulthood</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../act1.html">Déluge</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../part1/part1_1.html">Cosmic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../part1/part1_2.html">Earth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../part1/part1_3.html">Life</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../act2.html">Gates</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../part2/part2_1.html">Man</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../part2/part2_2.html">Fall</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../part2/part2_3.html">Salvation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../act3.html">Flow</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Happiness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="part3_2.html">Iteration</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="part3_3.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/abikesa/template/main?urlpath=tree/book/website/act3/part3/part3_1.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/act3/part3/part3_1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 1</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-contrail-dialectic-static-and-dynamic-across-history-and-philosophy"><strong>The Contrail Dialectic – Static and Dynamic Across History and Philosophy</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-contrails-as-the-nexus-of-static-and-dynamic"><strong>1. Introduction: Contrails as the Nexus of Static and Dynamic</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ancient-philosophy-heraclitus-and-parmenides"><strong>2. Ancient Philosophy: Heraclitus and Parmenides</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modern-physics-einstein-and-bohr"><strong>3. Modern Physics: Einstein and Bohr</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theology-the-two-popes-debate"><strong>4. Theology: The Two Popes Debate</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-environmental-revelation-of-contrails"><strong>5. The Environmental Revelation of Contrails</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neuroscience-and-the-r3-framework"><strong>6. Neuroscience and the R³ Framework</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-my-workflow-and-philosophy"><strong>7. Application to My Workflow and Philosophy</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-call-to-embrace-the-contrail-dialectic"><strong>8. A Call to Embrace the Contrail Dialectic</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#epilogue-a-sky-full-of-meaning"><strong>9. Epilogue: A Sky Full of Meaning</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rome-judea-herod-and-house-of-david">Rome, Judea, Herod, and House of David</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#political-context">1. <strong>Political Context</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-house-of-david">2. <strong>The House of David</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mary-joseph-and-the-house-of-david">3. <strong>Mary, Joseph, and the House of David</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-the-davidic-lineage-critical">4. <strong>Why Is the Davidic Lineage Critical?</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#who-was-from-the-house-of-david">5. <strong>Who Was from the House of David?</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-implications"><strong>Critical Implications</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#herods-claim-to-the-throne">Herods Claim to the Throne</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#herods-ancestry-and-background">1. <strong>Herod’s Ancestry and Background</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rise-to-power">2. <strong>Rise to Power</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#legitimizing-his-rule">3. <strong>Legitimizing His Rule</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-to-his-legitimacy">4. <strong>Challenges to His Legitimacy</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#herods-legacy">5. <strong>Herod’s Legacy</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#four-and-fortieth-year">Four and Fortieth Year</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-1">
+<h1>Chapter 1<a class="headerlink" href="#chapter-1" title="Permalink to this heading">#</a></h1>
+<section id="the-contrail-dialectic-static-and-dynamic-across-history-and-philosophy">
+<span id="contrail-dialectic"></span><h2><strong>The Contrail Dialectic – Static and Dynamic Across History and Philosophy</strong><a class="headerlink" href="#the-contrail-dialectic-static-and-dynamic-across-history-and-philosophy" title="Permalink to this heading">#</a></h2>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="part3_2.html#swot-r3"><span class="std std-ref">A Worthy Conclusion</span></a></p></li>
+<li><p><a class="reference internal" href="part3_2.html#jhu-r3"><span class="std std-ref">Johns Hopkins Magazine</span></a></p></li>
+</ul>
+</div>
+<section id="introduction-contrails-as-the-nexus-of-static-and-dynamic">
+<h3><strong>1. Introduction: Contrails as the Nexus of Static and Dynamic</strong><a class="headerlink" href="#introduction-contrails-as-the-nexus-of-static-and-dynamic" title="Permalink to this heading">#</a></h3>
+<p>For the past month, contrails have consumed my attention in a way that few natural phenomena have. These ephemeral, linear clouds left in the wake of airplanes are, paradoxically, the most persuasive evidence of a concept I’ve been exploring: the interplay between static and dynamic. For years, I failed to appreciate the significance of contrails despite countless opportunities. Now, however, I see them as a perfect metaphor for the collision of motion and stillness—the two fundamental modes of existence.</p>
+<p>Contrails capture dynamism (the planes in motion) and statism (the trails lingering in the sky). Together, they reveal paths that would otherwise be invisible, allowing us to contemplate phenomena that exceed the bounds of the immediate present. This tension—the dynamic versus the static—is the foundation of my philosophy, workflow, and intellectual pursuits, from my PhD thesis to the app I’m building for personalized risk assessment.</p>
+<p>To explore this, we’ll traverse epochs of thought, from Heraclitus and Parmenides to Einstein and Bohr, and even touch on the two popes’ debate about God. Contrails will serve as the connective tissue, unifying disparate domains under the umbrella of this eternal dialectic.</p>
+</section>
+<hr class="docutils" />
+<section id="ancient-philosophy-heraclitus-and-parmenides">
+<h3><strong>2. Ancient Philosophy: Heraclitus and Parmenides</strong><a class="headerlink" href="#ancient-philosophy-heraclitus-and-parmenides" title="Permalink to this heading">#</a></h3>
+<p>Contrails are a modern embodiment of an ancient debate. Heraclitus, the philosopher of flux, declared, “You cannot step into the same river twice.” His world was one of perpetual motion, transformation, and becoming—a dynamic reality. Opposite him stood Parmenides, the philosopher of being, who asserted that change is an illusion and that true reality is static and unchanging.</p>
+<p>In contrails, we see both perspectives. The motion of planes reflects Heraclitus’s dynamism, while the lingering trails, fixed in the sky for minutes or hours, affirm Parmenides’s insistence on permanence. Contrails reconcile these opposing views, embodying a synthesis that neither philosopher could achieve in isolation.</p>
+</section>
+<hr class="docutils" />
+<section id="modern-physics-einstein-and-bohr">
+<h3><strong>3. Modern Physics: Einstein and Bohr</strong><a class="headerlink" href="#modern-physics-einstein-and-bohr" title="Permalink to this heading">#</a></h3>
+<p>Fast-forward to the 20th century, where the dialectic between static and dynamic played out in the scientific revolution. Einstein, with his theories of relativity, represented the static mind. His universe was deterministic, governed by immutable laws that transcended time. In contrast, Niels Bohr, father of the Copenhagen interpretation of quantum mechanics, championed a dynamic, probabilistic universe where uncertainty was fundamental.</p>
+<p>Contrails, again, bridge the divide. Einstein’s statism is evident in the predictable formation of contrails under specific atmospheric conditions. Bohr’s dynamism emerges in their unpredictability—their length, dissipation, and interaction with weather patterns. Together, they capture the tension between certainty and chaos that defines modern physics.</p>
+</section>
+<hr class="docutils" />
+<section id="theology-the-two-popes-debate">
+<h3><strong>4. Theology: The Two Popes Debate</strong><a class="headerlink" href="#theology-the-two-popes-debate" title="Permalink to this heading">#</a></h3>
+<p>The 2019 film <em>The Two Popes</em> features a profound exchange between Pope Benedict XVI (Ratzinger) and Pope Francis. Benedict argues for an unchanging God, a static divine presence consistent across time. Francis counters with the idea of a God who evolves with humanity, embodying dynamism. Their disagreement reflects not only theological tensions but also the broader dialectic of static versus dynamic.</p>
+<p>Contrails illuminate why both are correct. The static trails reveal the unchanging essence of God—an enduring presence in the heavens. Yet their formation and dissolution embody a dynamic God, responding to the motions and interactions of human activity (in this case, air travel). Without both perspectives, we miss the full picture of divinity.</p>
+</section>
+<hr class="docutils" />
+<section id="the-environmental-revelation-of-contrails">
+<h3><strong>5. The Environmental Revelation of Contrails</strong><a class="headerlink" href="#the-environmental-revelation-of-contrails" title="Permalink to this heading">#</a></h3>
+<p>Contrails have also transformed my understanding of environmental impact. The realization that many of Baltimore’s clouds on clear mornings originate from airplanes has profoundly shifted my perspective on air travel and pollution. Static contrails make visible what is otherwise invisible—the environmental cost of dynamic human activity. This interplay between motion and stasis forces us to confront our relationship with the planet in a way no abstraction could achieve.</p>
+</section>
+<hr class="docutils" />
+<section id="neuroscience-and-the-r3-framework">
+<h3><strong>6. Neuroscience and the R³ Framework</strong><a class="headerlink" href="#neuroscience-and-the-r3-framework" title="Permalink to this heading">#</a></h3>
+<p>In my neural network model, contrails exemplify the interplay between inputs (dynamic processes like air travel), hidden layers (static elements like the contrails themselves), and outputs (the broader environmental and philosophical implications). This R³ framework—resources, risks, rewards—aligns perfectly with the contrail dialectic:</p>
+<ol class="arabic simple">
+<li><p><strong>Resources</strong>: Airplanes, fuel, and atmospheric conditions.</p></li>
+<li><p><strong>Risks</strong>: Environmental degradation and climate impact.</p></li>
+<li><p><strong>Rewards</strong>: Global connectivity and philosophical insights.</p></li>
+</ol>
+<p>The contrail dialectic embodies the tension within these layers, revealing new pathways for understanding complex systems.</p>
+</section>
+<hr class="docutils" />
+<section id="application-to-my-workflow-and-philosophy">
+<h3><strong>7. Application to My Workflow and Philosophy</strong><a class="headerlink" href="#application-to-my-workflow-and-philosophy" title="Permalink to this heading">#</a></h3>
+<p>In my work, I’ve found that dynamic processes (e.g., building a personalized risk assessment app) are harder to capture and quantify than static ones (e.g., publishing a paper). Yet both are essential. Static outputs provide a snapshot of progress, while dynamic workflows drive innovation. Contrails remind me to honor both aspects: the enduring structures that ground my work and the fluid processes that propel it forward.</p>
+</section>
+<hr class="docutils" />
+<section id="a-call-to-embrace-the-contrail-dialectic">
+<h3><strong>8. A Call to Embrace the Contrail Dialectic</strong><a class="headerlink" href="#a-call-to-embrace-the-contrail-dialectic" title="Permalink to this heading">#</a></h3>
+<p>The contrail dialectic challenges us to integrate static and dynamic perspectives in every domain. Whether contemplating the nature of God, the structure of the universe, or the workflows of modern life, we must acknowledge the necessity of both modes. Contrails, with their fleeting yet enduring presence, serve as a powerful metaphor for this synthesis—a reminder that only by uniting motion and stillness can we fully appreciate the richness of existence.</p>
+</section>
+<hr class="docutils" />
+<section id="epilogue-a-sky-full-of-meaning">
+<h3><strong>9. Epilogue: A Sky Full of Meaning</strong><a class="headerlink" href="#epilogue-a-sky-full-of-meaning" title="Permalink to this heading">#</a></h3>
+<p>Next time you look up at the sky and see contrails weaving their transient patterns, pause to consider their deeper significance. They are more than mere byproducts of human activity; they are a testament to the interplay of dynamism and statism that defines our world. Like the philosophers, physicists, and theologians who have grappled with this dialectic, we too can find meaning in the trails of the past and the motion of the present.</p>
+</section>
+</section>
+<section id="rome-judea-herod-and-house-of-david">
+<h2>Rome, Judea, Herod, and House of David<a class="headerlink" href="#rome-judea-herod-and-house-of-david" title="Permalink to this heading">#</a></h2>
+<p>The politics at the time of Jesus’ birth were deeply intertwined with Roman imperial rule, Jewish aspirations for liberation, and messianic expectations. Understanding this context provides insight into the significance of Jesus’ lineage and the role of the house of David in Jewish thought.</p>
+<section id="political-context">
+<h3>1. <strong>Political Context</strong><a class="headerlink" href="#political-context" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Roman Rule</strong>: Palestine was under Roman control, governed directly through local client kings like Herod the Great, who ruled as a Roman ally. The Romans maintained control through taxation and military might, leading to widespread discontent among the Jewish populace.</p></li>
+<li><p><strong>Jewish Factions</strong>: Various Jewish sects had differing responses to Roman rule:</p>
+<ul>
+<li><p><strong>Pharisees</strong> focused on religious purity and adherence to the Torah.</p></li>
+<li><p><strong>Sadducees</strong>, aligned with the temple priesthood, often cooperated with Rome.</p></li>
+<li><p><strong>Zealots</strong> sought violent rebellion against Roman occupation.</p></li>
+<li><p><strong>Essenes</strong> withdrew from mainstream society, awaiting divine intervention.</p></li>
+</ul>
+</li>
+<li><p><strong>Messianic Expectations</strong>: Many Jews hoped for a messiah from the line of David who would restore Israel’s independence and establish God’s kingdom.</p></li>
+</ul>
+</section>
+<section id="the-house-of-david">
+<h3>2. <strong>The House of David</strong><a class="headerlink" href="#the-house-of-david" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Messianic Prophecies</strong>: Jewish tradition held that the Messiah would be a descendant of King David, fulfilling God’s covenant that David’s throne would be established forever (2 Samuel 7:12-16). This lineage symbolized legitimacy, continuity, and divine favor.</p></li>
+<li><p><strong>David’s Significance</strong>: David was the archetype of a righteous king who united Israel and secured its independence. A messianic figure from his house represented the hope for a restored kingdom.</p></li>
+</ul>
+</section>
+<section id="mary-joseph-and-the-house-of-david">
+<h3>3. <strong>Mary, Joseph, and the House of David</strong><a class="headerlink" href="#mary-joseph-and-the-house-of-david" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Joseph’s Lineage</strong>: The Gospel of Matthew (1:1-17) provides a genealogy tracing Jesus’ descent from David through Joseph, his legal father. This legal connection was critical in Jewish tradition, as lineage and inheritance often passed through the father.</p></li>
+<li><p><strong>Mary’s Connection</strong>: The Gospel of Luke (3:23-38) also includes a genealogy, but it differs from Matthew’s. Many scholars interpret Luke’s genealogy as representing Mary’s lineage, showing Jesus’ biological descent from David. This view isn’t universally accepted but aligns with the emphasis on Mary’s virginity in Luke’s account of Jesus’ conception.</p></li>
+</ul>
+</section>
+<section id="why-is-the-davidic-lineage-critical">
+<h3>4. <strong>Why Is the Davidic Lineage Critical?</strong><a class="headerlink" href="#why-is-the-davidic-lineage-critical" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Fulfillment of Prophecy</strong>: The Davidic lineage affirmed Jesus as the legitimate Messiah in Jewish eyes, fulfilling prophecies such as Isaiah 11:1, which speaks of a “shoot from the stump of Jesse” (David’s father).</p></li>
+<li><p><strong>Political and Religious Claims</strong>: By emphasizing Jesus’ Davidic descent, the Gospels link him to the hope for a divinely ordained ruler who would establish justice and peace.</p></li>
+<li><p><strong>Challenge to Authority</strong>: Jesus’ Davidic lineage also posed a political threat to both Roman rulers and Jewish authorities, as it implied claims to kingship.</p></li>
+</ul>
+</section>
+<section id="who-was-from-the-house-of-david">
+<h3>5. <strong>Who Was from the House of David?</strong><a class="headerlink" href="#who-was-from-the-house-of-david" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Joseph</strong>: Explicitly identified as being from the house of David (Matthew 1:20; Luke 1:27).</p></li>
+<li><p><strong>Mary</strong>: While not explicitly called a descendant of David in the Gospels, the emphasis on her role in fulfilling prophecy suggests a Davidic connection. Luke’s genealogy is sometimes interpreted to trace her lineage to David through Nathan (David’s son).</p></li>
+</ul>
+</section>
+<section id="critical-implications">
+<h3><strong>Critical Implications</strong><a class="headerlink" href="#critical-implications" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Jesus’ Davidic lineage tied him to the long-cherished hopes for a messianic king, providing theological and political legitimacy to his mission.</p></li>
+<li><p>This connection underscored the revolutionary nature of his message: a kingdom not of earthly power but of divine justice and peace.</p></li>
+<li><p>The dual genealogies in Matthew and Luke reflect the theological importance of Jesus’ Davidic descent, ensuring his legitimacy in both legal and biological terms.</p></li>
+</ul>
+<p>Thus, Jesus’ birth into the house of David carried profound implications for Jewish hopes, Roman politics, and the early Christian proclamation of his identity as the Messiah.</p>
+</section>
+</section>
+<section id="herods-claim-to-the-throne">
+<h2>Herods Claim to the Throne<a class="headerlink" href="#herods-claim-to-the-throne" title="Permalink to this heading">#</a></h2>
+<p>Herod the Great’s claim to the throne of Judea was complex, rooted in political maneuvering, Roman support, and a tenuous connection to the Jewish people. His rule was not based on direct descent from the royal Davidic line but rather on his ability to secure favor with the Romans and assert control over a volatile region. Here’s a breakdown of Herod’s claim and how he legitimized his position:</p>
+<section id="herods-ancestry-and-background">
+<h3>1. <strong>Herod’s Ancestry and Background</strong><a class="headerlink" href="#herods-ancestry-and-background" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Idumean Origin</strong>: Herod was an Idumean (Edomite), a people forcibly converted to Judaism during the Hasmonean period. His father, Antipater, was a high-ranking Idumean official who served under the Hasmonean dynasty.</p></li>
+<li><p><strong>Questionable Jewish Identity</strong>: Although Herod practiced Judaism, his Idumean origins made his Jewishness suspect to many in Judea. For many Jews, a non-Davidic, non-Jewish king was illegitimate, heightening tensions during his reign.</p></li>
+</ul>
+</section>
+<section id="rise-to-power">
+<h3>2. <strong>Rise to Power</strong><a class="headerlink" href="#rise-to-power" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Roman Support</strong>: Herod’s claim to the throne was solidified through his relationship with Rome:</p>
+<ul>
+<li><p><strong>Antipater’s Influence</strong>: Herod’s father, Antipater, ingratiated himself with Julius Caesar by aiding him in a campaign in Egypt. This favor transferred to Herod.</p></li>
+<li><p><strong>Appointed Governor</strong>: Herod was appointed governor of Galilee by the Romans in 47 BCE, showcasing his administrative and military capabilities.</p></li>
+</ul>
+</li>
+<li><p><strong>Battle for Control</strong>: In 40 BCE, the Parthians (Rome’s eastern rivals) invaded Judea, installing Antigonus, the last Hasmonean king, as a puppet ruler. Herod fled to Rome and convinced the Senate to support him as “King of the Jews.”</p></li>
+<li><p><strong>Roman Senate Declaration</strong>: In 37 BCE, with the military backing of Rome, particularly Mark Antony and Octavian (later Augustus), Herod reclaimed Jerusalem, deposing Antigonus and securing the throne.</p></li>
+</ul>
+</section>
+<section id="legitimizing-his-rule">
+<h3>3. <strong>Legitimizing His Rule</strong><a class="headerlink" href="#legitimizing-his-rule" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Marriage into the Hasmonean Dynasty</strong>: To strengthen his claim, Herod married Mariamne, a Hasmonean princess. This marriage linked him to the previous Jewish ruling dynasty, lending him some legitimacy among the Jewish population.</p></li>
+<li><p><strong>Temple Renovation</strong>: Herod undertook massive building projects, including the grand renovation of the Second Temple in Jerusalem. By enhancing the Temple’s splendor, he sought to win favor with the Jewish religious establishment and assert his role as a protector of Jewish worship.</p></li>
+<li><p><strong>Political Alliances</strong>: Herod maintained his position through loyalty to Rome, deftly navigating the volatile political environment, including the transition from the Roman Republic to the Roman Empire under Augustus.</p></li>
+</ul>
+</section>
+<section id="challenges-to-his-legitimacy">
+<h3>4. <strong>Challenges to His Legitimacy</strong><a class="headerlink" href="#challenges-to-his-legitimacy" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Not Davidic</strong>: Herod’s lack of descent from the Davidic line made him unpopular with Jews who hoped for a messianic king from David’s lineage.</p></li>
+<li><p><strong>Brutality</strong>: Herod’s reign was marked by paranoia and ruthless suppression of opposition, including the execution of several members of his own family. This undermined his moral standing among the Jewish people.</p></li>
+<li><p><strong>Religious Tensions</strong>: Many Jews resented Herod as a puppet of Rome and questioned his Jewish authenticity due to his Idumean heritage.</p></li>
+</ul>
+</section>
+<section id="herods-legacy">
+<h3>5. <strong>Herod’s Legacy</strong><a class="headerlink" href="#herods-legacy" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>King by Roman Decree</strong>: Ultimately, Herod’s claim to the throne rested on Roman military and political support rather than divine or ancestral legitimacy. He ruled as a client king, balancing Roman interests with attempts to placate his Jewish subjects.</p></li>
+<li><p><strong>Historical Significance</strong>: Despite his controversial rule, Herod left an enduring legacy through his architectural achievements, such as the Herodian Temple, Masada, and Caesarea Maritima. These projects reflected both his ambition and his need to assert legitimacy.</p></li>
+</ul>
+<p>Herod’s reign exemplified the tension between Roman imperialism and Jewish autonomy, making him a divisive figure whose claim to the throne was more a product of Roman power politics than traditional Jewish expectations of kingship.</p>
+</section>
+</section>
+<section id="four-and-fortieth-year">
+<h2><a class="reference external" href="https://abikesa.github.io/zarathustra/act1/chapter1.html#perfect-day">Four and Fortieth Year</a><a class="headerlink" href="#four-and-fortieth-year" title="Permalink to this heading">#</a></h2>
+<p>Herod the Great was not a king during Julius Caesar’s reign. Herod became king of Judea much later, under Roman authority. Here’s the timeline:</p>
+<ul class="simple">
+<li><p><strong>Julius Caesar’s reign</strong>: Julius Caesar was assassinated in <code class="docutils literal notranslate"><span class="pre">44</span></code> BCE. At this time, Herod was not yet a king but part of a politically influential family in the region. His father, Antipater the Idumaean, had been appointed a Roman procurator of Judea by Caesar and was a key ally to the Romans.</p></li>
+<li><p><strong>Herod’s reign</strong>: Herod the Great was declared “King of the Jews” by the Roman Senate in 40 BCE, during the rule of Julius Caesar’s grandnephew, <strong>Octavian (Augustus)</strong>, and Mark Antony. Herod officially began his reign in 37 BCE after securing control over Jerusalem.</p></li>
+</ul>
+<p>So, Herod was only a king during the reign of <strong>Julius Caesar’s successors</strong>, particularly Augustus. He played a key role in stabilizing the region for Rome, earning Augustus’s favor after the defeat of Antony and Cleopatra at Actium in 31 BCE.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./act3/part3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../act3.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Relational</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="part3_2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 2</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-contrail-dialectic-static-and-dynamic-across-history-and-philosophy"><strong>The Contrail Dialectic – Static and Dynamic Across History and Philosophy</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-contrails-as-the-nexus-of-static-and-dynamic"><strong>1. Introduction: Contrails as the Nexus of Static and Dynamic</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ancient-philosophy-heraclitus-and-parmenides"><strong>2. Ancient Philosophy: Heraclitus and Parmenides</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modern-physics-einstein-and-bohr"><strong>3. Modern Physics: Einstein and Bohr</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theology-the-two-popes-debate"><strong>4. Theology: The Two Popes Debate</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-environmental-revelation-of-contrails"><strong>5. The Environmental Revelation of Contrails</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neuroscience-and-the-r3-framework"><strong>6. Neuroscience and the R³ Framework</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-my-workflow-and-philosophy"><strong>7. Application to My Workflow and Philosophy</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-call-to-embrace-the-contrail-dialectic"><strong>8. A Call to Embrace the Contrail Dialectic</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#epilogue-a-sky-full-of-meaning"><strong>9. Epilogue: A Sky Full of Meaning</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rome-judea-herod-and-house-of-david">Rome, Judea, Herod, and House of David</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#political-context">1. <strong>Political Context</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-house-of-david">2. <strong>The House of David</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mary-joseph-and-the-house-of-david">3. <strong>Mary, Joseph, and the House of David</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-the-davidic-lineage-critical">4. <strong>Why Is the Davidic Lineage Critical?</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#who-was-from-the-house-of-david">5. <strong>Who Was from the House of David?</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#critical-implications"><strong>Critical Implications</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#herods-claim-to-the-throne">Herods Claim to the Throne</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#herods-ancestry-and-background">1. <strong>Herod’s Ancestry and Background</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rise-to-power">2. <strong>Rise to Power</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#legitimizing-his-rule">3. <strong>Legitimizing His Rule</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-to-his-legitimacy">4. <strong>Challenges to His Legitimacy</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#herods-legacy">5. <strong>Herod’s Legacy</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#four-and-fortieth-year">Four and Fortieth Year</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Marx, Nietzsche, Jung, Coen, Future, and Metro
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Copyright © 2025 Zeus
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
