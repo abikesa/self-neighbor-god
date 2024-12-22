@@ -5,7 +5,7 @@ chapters:
   # Sing O Muse!
   - file: act1/part1
     sections:
-      - title: Qui Tollit Peccata Mundi
+      - title: Peccata Mundi
         file: act1/chapter1
       - title: Behold the Lamb of God
         file: act1/chapter2
@@ -39,9 +39,9 @@ chapters:
         sections:
           - title: Animal Insticts & The Gambler
             file: act3/part2/part2_1
-          - title: What is Great in Man
+          - title: What is Great in Man & Ventures
             file: act3/part2/part2_2
-          - title: Übermensch, Maternal, Umbrella  
+          - title: 'Übermensch, Maternal, Umbrella ☔️'
             file: act3/part2/part2_3
       - title: Iterative Refinement of Mankind?
         file: act3/act3
