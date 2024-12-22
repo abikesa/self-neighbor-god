@@ -5,50 +5,50 @@ chapters:
   # Sing O Muse!
   - file: act1/part1
     sections:
-      - title: Shadow
+      - title: Qui Tollit Peccata Mundi
         file: act1/chapter1
-      - title: Übermensch
+      - title: Behold the Lamb of God
         file: act1/chapter2
-      - title: Individuation
+      - title: Dona Nobis Pacem
         file: act1/chapter3
         
   # Sing O Muse!
   - file: act2/part2
     sections:
-      - title: Biology
+      - title: Anarchy, Determinism, Biology
         file: act2/chapter1
-      - title: Sociology
+      - title: Oligarchy, Cartels, Sociology
         file: act2/chapter2
-      - title: Psychology
+      - title: Monarchy, Fantasies, Psychology
         file: act2/chapter3
 
   # Apollo
   - file: act3/part3
     sections:
-      - title: Déluge
+      - title: Apres Moi, La Déluge!
         file: act3/act1
         sections:
-          - title: Cosmic
+          - title: Henry Flynn on Rodri's Absence
             file: act3/part1/part1_1
-          - title: Earth
+          - title: Guardiola on Chicago Bulls Sans Jordan
             file: act3/part1/part1_2
-          - title: Life
+          - title: Nodes, Edges, Weights, Meaning
             file: act3/part1/part1_3
-      - title: Gates
+      - title: Heaven's Gates & Fortresses
         file: act3/act2
         sections:
-          - title: Man
+          - title: Animal Insticts & The Gambler
             file: act3/part2/part2_1
-          - title: Fall
+          - title: What is Great in Man
             file: act3/part2/part2_2
-          - title: Salvation
+          - title: Übermensch, Maternal, Umbrella  
             file: act3/part2/part2_3
-      - title: Flow
+      - title: Iterative Refinement of Mankind?
         file: act3/act3
         sections:
-          - title: Happiness
+          - title: Optimism and the Very Linear Narrative
             file: act3/part3/part3_1
-          - title: Iteration
+          - title: The Cheerful, Absurdist Pessimist
             file: act3/part3/part3_2
 
   - file: act3/part3/part3_3
