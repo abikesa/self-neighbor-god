@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Transformation &#8212; Self-Neighbor-God</title>
+    <title>Ecce Adnus Dei Ecce Qui Tollit Peccata Mundi &#8212; Self-Neighbor-God</title>
   
   
   
@@ -184,7 +184,7 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Transformation</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Ecce Adnus Dei Ecce Qui Tollit Peccata Mundi</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="chapter1.html">Shadow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="chapter2.html">Übermensch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="chapter3.html">Individuation</a></li>
@@ -384,7 +384,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Transformation</h1>
+    <h1>Ecce Adnus Dei Ecce Qui Tollit Peccata Mundi</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -398,143 +398,12 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="transformation">
-<span id="mind"></span><h1>Transformation<a class="headerlink" href="#transformation" title="Permalink to this heading">#</a></h1>
-<p><em>These trivial matters—diet, locality, climate, and one’s mode of recreation, the whole casuistry of self-love—are inconceivably more important than, all that which has hitherto been held in high esteem!</em><br />
-– <a class="reference external" href="https://www.gutenberg.org/files/52190/52190-h/52190-h.htm">Why I am so clever</a>, Ecce Homo</p>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="c1"># Define layers for the input (compression) phase</span>
-<span class="n">input_layers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;Biology&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Man&#39;</span><span class="p">,</span> <span class="s1">&#39;Life&#39;</span><span class="p">,</span> <span class="s1">&#39;Earth&#39;</span><span class="p">,</span> <span class="s1">&#39;Cosmos&#39;</span><span class="p">],</span>
-    <span class="s2">&quot;Drugs and External Factors&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Drugs&#39;</span><span class="p">,</span> <span class="s1">&#39;Nutrients&#39;</span><span class="p">,</span> <span class="s1">&#39;Toxins&#39;</span><span class="p">,</span> <span class="s1">&#39;Radiation&#39;</span><span class="p">],</span>
-    <span class="s2">&quot;Ligands &amp; Receptors&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Hormones&#39;</span><span class="p">,</span> <span class="s1">&#39;Neurotransmitters&#39;</span><span class="p">,</span> <span class="s1">&#39;Growth Factors&#39;</span><span class="p">,</span> <span class="s1">&#39;Cytokines&#39;</span><span class="p">],</span>
-    <span class="s2">&quot;Pathways&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Signal Transduction&#39;</span><span class="p">,</span> <span class="s1">&#39;Metabolic&#39;</span><span class="p">,</span> <span class="s1">&#39;Epigenetic&#39;</span><span class="p">],</span>
-    <span class="s2">&quot;Cells&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Neurons&#39;</span><span class="p">,</span> <span class="s1">&#39;Epithelial&#39;</span><span class="p">,</span> <span class="s1">&#39;Immune Cells&#39;</span><span class="p">,</span> <span class="s1">&#39;Stem Cells&#39;</span><span class="p">],</span>
-   <span class="s2">&quot;Tissues&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Neural&#39;</span><span class="p">,</span> <span class="s1">&#39;Muscle&#39;</span><span class="p">,</span> <span class="s1">&#39;Connective&#39;</span><span class="p">,</span> <span class="s1">&#39;Epithelial&#39;</span><span class="p">],</span>
-    <span class="s2">&quot;Systems&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s1">&#39;Vascular&#39;</span><span class="p">,</span> <span class="s1">&#39;Lymphatic&#39;</span><span class="p">],</span>
-    <span class="s2">&quot;Immuno-Neuro-Endocrinology&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Cytokines&#39;</span><span class="p">,</span> <span class="s1">&#39;Neurohormones&#39;</span><span class="p">,</span> <span class="s1">&#39;Endocrine Feedback&#39;</span><span class="p">],</span>
-    <span class="s2">&quot;Molecular Biology&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;DNA&#39;</span><span class="p">,</span> <span class="s1">&#39;RNA&#39;</span><span class="p">,</span> <span class="s1">&#39;Proteins&#39;</span><span class="p">,</span> <span class="s1">&#39;Lipids&#39;</span><span class="p">],</span>
-    <span class="s2">&quot;Omics&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Genomics&#39;</span><span class="p">,</span> <span class="s1">&#39;Proteomics&#39;</span><span class="p">,</span> <span class="s1">&#39;Metabolomics&#39;</span><span class="p">,</span> <span class="s1">&#39;Epigenomics&#39;</span><span class="p">,</span> <span class="s1">&#39;Transcriptomics&#39;</span><span class="p">],</span>
-    <span class="s2">&quot;Quantum&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Energy&#39;</span><span class="p">,</span> <span class="s1">&#39;Particles&#39;</span><span class="p">,</span> <span class="s1">&#39;Spin&#39;</span><span class="p">,</span> <span class="s1">&#39;Wave Functions&#39;</span><span class="p">]</span>
-<span class="p">}</span>
-
-<span class="c1"># Define layers for the output (decompression) phase</span>
-<span class="n">output_layers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;Molecular Outputs&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Electron Transfer&#39;</span><span class="p">,</span> <span class="s1">&#39;Molecular Stability&#39;</span><span class="p">,</span> <span class="s1">&#39;Reaction Dynamics&#39;</span><span class="p">],</span>
-    <span class="s2">&quot;Cellular Behavior&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;ATP Production&#39;</span><span class="p">,</span> <span class="s1">&#39;Membrane Potential&#39;</span><span class="p">,</span> <span class="s1">&#39;DNA Repair&#39;</span><span class="p">,</span> <span class="s1">&#39;Protein Synthesis&#39;</span><span class="p">],</span>
-    <span class="s2">&quot;Tissue-Level Dynamics&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Neural Activity&#39;</span><span class="p">,</span> <span class="s1">&#39;Muscle Contraction&#39;</span><span class="p">,</span> <span class="s1">&#39;Immune Responses&#39;</span><span class="p">],</span>
-    <span class="s2">&quot;Organ Systems&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Cardiovascular&#39;</span><span class="p">,</span> <span class="s1">&#39;Immune&#39;</span><span class="p">,</span> <span class="s1">&#39;Nervous&#39;</span><span class="p">,</span> <span class="s1">&#39;Endocrine&#39;</span><span class="p">],</span>
-    <span class="s2">&quot;Physiological States&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Homeostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Stress Response&#39;</span><span class="p">,</span> <span class="s1">&#39;Energy Balance&#39;</span><span class="p">,</span> <span class="s1">&#39;Neuroendocrine Feedback&#39;</span><span class="p">],</span>
-    <span class="s2">&quot;Behavioral and Psychological Outcomes&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Cognitive Function&#39;</span><span class="p">,</span> <span class="s1">&#39;Emotional States&#39;</span><span class="p">,</span> <span class="s1">&#39;Behavioral Outputs&#39;</span><span class="p">],</span>
-    <span class="s2">&quot;Sociological and Environmental Interactions&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Social Structures&#39;</span><span class="p">,</span> <span class="s1">&#39;Environmental Interactions&#39;</span><span class="p">,</span> <span class="s1">&#39;Sociological Outputs&#39;</span><span class="p">],</span>
-    <span class="s2">&quot;Functional Health Outcomes&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Longevity&#39;</span><span class="p">,</span> <span class="s1">&#39;Disease Risk&#39;</span><span class="p">,</span> <span class="s1">&#39;Quality of Life&#39;</span><span class="p">,</span> <span class="s1">&#39;Functional Fitness&#39;</span><span class="p">]</span>
-<span class="p">}</span>
-
-<span class="c1"># Merge input and output layers</span>
-<span class="n">full_layers</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">input_layers</span><span class="p">,</span> <span class="o">**</span><span class="n">output_layers</span><span class="p">}</span>
-
-<span class="c1"># Initialize the graph</span>
-<span class="n">G_full_biology</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
-
-<span class="c1"># Add nodes for each layer</span>
-<span class="k">for</span> <span class="n">layer_name</span><span class="p">,</span> <span class="n">nodes</span> <span class="ow">in</span> <span class="n">full_layers</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="n">G_full_biology</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="n">layer_name</span><span class="p">)</span>
-
-<span class="c1"># Connect layers sequentially</span>
-<span class="n">layer_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">full_layers</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">layer_names</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
-    <span class="n">source_layer</span> <span class="o">=</span> <span class="n">full_layers</span><span class="p">[</span><span class="n">layer_names</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
-    <span class="n">target_layer</span> <span class="o">=</span> <span class="n">full_layers</span><span class="p">[</span><span class="n">layer_names</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]]</span>
-    <span class="k">for</span> <span class="n">source_node</span> <span class="ow">in</span> <span class="n">source_layer</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">target_node</span> <span class="ow">in</span> <span class="n">target_layer</span><span class="p">:</span>
-            <span class="n">G_full_biology</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">source_node</span><span class="p">,</span> <span class="n">target_node</span><span class="p">)</span>
-
-<span class="c1"># Define node positions for visualization (inverted layout)</span>
-<span class="n">pos_full_biology</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="n">layer_spacing</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># Space between layers</span>
-<span class="n">node_spacing</span> <span class="o">=</span> <span class="mf">1.5</span>  <span class="c1"># Space between nodes within a layer</span>
-
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">layer_name</span><span class="p">,</span> <span class="n">nodes</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">full_layers</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">layer_spacing</span> <span class="o">-</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">layer_names</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">layer_spacing</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># Inverted vertical alignment</span>
-    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nodes</span><span class="p">):</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">j</span> <span class="o">*</span> <span class="n">node_spacing</span> <span class="o">-</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">node_spacing</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># Center nodes horizontally within layer</span>
-        <span class="n">pos_full_biology</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-
-<span class="c1"># Define specific colors for the Stress Dynamics pathway</span>
-<span class="n">highlighted_layers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;Physiological States&quot;</span><span class="p">:</span> <span class="s2">&quot;lightsalmon&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Behavioral and Psychological Outcomes&quot;</span><span class="p">:</span> <span class="s2">&quot;lightgreen&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Sociological and Environmental Interactions&quot;</span><span class="p">:</span> <span class="s2">&quot;paleturquoise&quot;</span>
-<span class="p">}</span>
-
-<span class="n">node_colors</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G_full_biology</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
-    <span class="k">for</span> <span class="n">layer_name</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">highlighted_layers</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">full_layers</span><span class="p">[</span><span class="n">layer_name</span><span class="p">]:</span>
-            <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
-            <span class="k">break</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;lightgray&quot;</span><span class="p">)</span>
-
-<span class="c1"># Highlight the Stress Pathway</span>
-<span class="n">stress_path</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s2">&quot;Earth&quot;</span><span class="p">,</span> <span class="s2">&quot;Nutrients&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;Earth&quot;</span><span class="p">,</span> <span class="s2">&quot;Drugs&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;Earth&quot;</span><span class="p">,</span> <span class="s2">&quot;Toxins&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Life&quot;</span><span class="p">,</span> <span class="s2">&quot;Nutrients&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;Life&quot;</span><span class="p">,</span> <span class="s2">&quot;Drugs&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;Life&quot;</span><span class="p">,</span> <span class="s2">&quot;Toxins&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Man&quot;</span><span class="p">,</span> <span class="s2">&quot;Nutrients&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;Man&quot;</span><span class="p">,</span> <span class="s2">&quot;Drugs&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;Man&quot;</span><span class="p">,</span> <span class="s2">&quot;Toxins&quot;</span><span class="p">,</span> <span class="s2">&quot;Muscle Contraction&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Nutrients&quot;</span><span class="p">,</span> <span class="s2">&quot;Muscle Contraction&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;Drugs&quot;</span><span class="p">,</span> <span class="s2">&quot;Muscle Contraction&quot;</span><span class="p">,</span> <span class="s2">&quot;Endocrine&quot;</span><span class="p">,</span> <span class="s2">&quot;Stress Response&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;Muscle Contraction&quot;</span><span class="p">,</span> <span class="s2">&quot;Cardiovascular&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;Stress Response&quot;</span><span class="p">,</span> <span class="s2">&quot;Cognitive Function&quot;</span><span class="p">,</span> <span class="s2">&quot;Sociological Outputs&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;Stress Response&quot;</span><span class="p">,</span> <span class="s2">&quot;Emotional States&quot;</span><span class="p">,</span> <span class="s2">&quot;Sociological Outputs&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;Stress Response&quot;</span><span class="p">,</span> <span class="s2">&quot;Behavioral Outputs&quot;</span><span class="p">,</span> <span class="s2">&quot;Sociological Outputs&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;Functional Fitness&quot;</span>
-<span class="p">]</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">stress_path</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
-    <span class="n">G_full_biology</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">stress_path</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">stress_path</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">weight</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-
-<span class="n">edge_widths</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">G_full_biology</span><span class="o">.</span><span class="n">edges</span><span class="p">():</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">stress_path</span><span class="p">,</span> <span class="n">stress_path</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
-        <span class="n">edge_widths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># Highlighted path</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">edge_widths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-
-<span class="c1"># Draw the graph</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">30</span><span class="p">))</span>
-<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G_full_biology</span><span class="p">,</span> <span class="n">pos_full_biology</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">)</span>
-<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_labels</span><span class="p">(</span><span class="n">G_full_biology</span><span class="p">,</span> <span class="n">pos_full_biology</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">)</span>
-<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G_full_biology</span><span class="p">,</span> <span class="n">pos_full_biology</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">edge_widths</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Diet, Locality, Climate, Recreation&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<img alt="../_images/f76b8985c9caf38ecf52c93f67c6af3074238835e16a9bb0d8a79127a59ccc53.png" src="../_images/f76b8985c9caf38ecf52c93f67c6af3074238835e16a9bb0d8a79127a59ccc53.png" />
-</div>
-</div>
-<figure class="align-default" id="id2">
-<a class="reference internal image-reference" href="https://www.harleytherapy.co.uk/counselling/wp-content/uploads/freud-and-jung.jpg"><img alt="https://www.harleytherapy.co.uk/counselling/wp-content/uploads/freud-and-jung.jpg" src="https://www.harleytherapy.co.uk/counselling/wp-content/uploads/freud-and-jung.jpg" style="width: 1%;" /></a>
+  <section class="tex2jax_ignore mathjax_ignore" id="ecce-adnus-dei-ecce-qui-tollit-peccata-mundi">
+<span id="mind"></span><h1>Ecce Adnus Dei Ecce Qui Tollit Peccata Mundi<a class="headerlink" href="#ecce-adnus-dei-ecce-qui-tollit-peccata-mundi" title="Permalink to this heading">#</a></h1>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="https://printmaking.cy/wp-content/uploads/2023/04/ecce.png"><img alt="https://printmaking.cy/wp-content/uploads/2023/04/ecce.png" src="https://printmaking.cy/wp-content/uploads/2023/04/ecce.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text"><em>Biology, Sociology, Psychology</em>. The 19-layer neural network begins with an exhaustive input layer (1) spanning cosmic, earth, life, and man—raw, unfiltered, and Dionysian in its range and force. This chaotic energy is tempered by Apollonian floodgates (think: <a class="reference external" href="https://upload.wikimedia.org/wikipedia/commons/4/49/%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg">Athena’s Shield</a>), channeling it into substrates that underpin human biology, represented by the majority of the network’s structure (layers 2–15). Sequential compression begins at gate #1 (adversarial/biology at layer 16), progresses through gate #2 (iterative/sociology at layer 17), and culminates in gate #3 (cooperative/psychology at layer 18), reflecting the layered intricacy of Biology, Sociology, and Psychology. The cooperative equilibrium at this final compression is imperfect, requiring the individual to deftly navigate social structures, environmental interactions, and sociological outputs with firmness, tact, and clarity—traits embodied by the Oxford PPE education, a hallmark of Britain’s most successful 20th-century navigators. Finally, the output layer (19) represents the domain where payoffs are realized and continuously reappraised, capturing the <code class="docutils literal notranslate"><span class="pre">dynamic</span> <span class="pre">feedback</span></code> of lived experience. What remain unspoken in this book is the AI revolution spearheaded by Nvidia and how it will redefine the competitive landscape in every industry &amp; give rise to the Übermensch of our era. But lets see how this narrative of individuation and transformation applies to a modern work of art: <em><a class="reference external" href="https://en.wikipedia.org/wiki/The_Matrix#Transgender_themes">The Matrix</a></em>: Years after the release of The Matrix, both of the Wachowskis came out as transgender women. The red pill has been compared with red <code class="docutils literal notranslate"><span class="pre">estrogen</span></code> pills. Morpheus’s description of the Matrix creating a sense that something is fundamentally wrong, “like a splinter in your mind”, has been compared to gender dysphoria. In the original script, Switch was a woman in the Matrix and a man in the real world, but this idea was removed. In a 2016 GLAAD Media Awards speech, Lilly Wachowski said: “There’s a critical eye being cast back on Lana and I’s work through the lens of our transness. This is a cool thing because it’s an excellent reminder that art is never <code class="docutils literal notranslate"><span class="pre">static</span></code>.” In 2020, Lilly said The Matrix was intended as an <code class="docutils literal notranslate"><span class="pre">allegory</span></code> for gender transition, <span id="id1"><sup><a class="reference internal" href="../act3/part3/part3_3.html#id54" title="Dante Alighieri. The Divine Comedy: Volume 2: Purgatorio. Penguin Classics, 1984. URL: https://www.gutenberg.org/cache/epub/998/pg998-images.html.">1</a></sup></span> but that “the <code class="docutils literal notranslate"><span class="pre">corporate</span></code> world wasn’t ready”. She said it was “all about the desire for <code class="docutils literal notranslate"><span class="pre">transformation</span></code> but it was all coming from a closeted point of view”, but that she did not know “how present my transness was in the background of my brain” when the Wachowskis were writing it. In an interview with Variety, Reeves said he did not know the film was an allegory for transgender <code class="docutils literal notranslate"><span class="pre">identity</span></code> during production</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text"><em>Peccata Mundi, Agnus Dei, Dona Nobis Pacem</em>. These map onto Animal, Man, Übermensch or Sin, Sacrifice, Salvation - S³, Diagnosis, Prescription, Outcome.  The Lamb of God, the hidden layer in our neural network, is where transformation occurs. bThe lam is the intermediary, the filter, the great <em>agnus dei</em>, the Lamb that takes away the sins of the world. The hidden layer prescribes the solution to every diagnosis. You want an antidote to sin? It’s right there: illumination, understanding, the great symbolic light that shines on the root cause. Every prescription is just another way of saying, “Carry your burden; take this path; let the lamp guide you.” In this layer, sin is translated into sacrifice, and blame becomes introspection. This is the limbo, the middle ground, the agonizing waiting room of human understanding.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="toctree-wrapper compound">
